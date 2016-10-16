@@ -9,19 +9,19 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=GNU-Linux
 CND_ARTIFACT_DIR_Debug=dist/Debug/GNU-Linux
-CND_ARTIFACT_NAME_Debug=contextwsitch
-CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-Linux/contextwsitch
+CND_ARTIFACT_NAME_Debug=contextswitch
+CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-Linux/contextswitch
 CND_PACKAGE_DIR_Debug=dist/Debug/GNU-Linux/package
-CND_PACKAGE_NAME_Debug=contextwsitch.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux/package/contextwsitch.tar
+CND_PACKAGE_NAME_Debug=contextswitch.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux/package/contextswitch.tar
 # Release configuration
 CND_PLATFORM_Release=GNU-Linux
 CND_ARTIFACT_DIR_Release=dist/Release/GNU-Linux
-CND_ARTIFACT_NAME_Release=contextwsitch
-CND_ARTIFACT_PATH_Release=dist/Release/GNU-Linux/contextwsitch
+CND_ARTIFACT_NAME_Release=contextswitch
+CND_ARTIFACT_PATH_Release=dist/Release/GNU-Linux/contextswitch
 CND_PACKAGE_DIR_Release=dist/Release/GNU-Linux/package
-CND_PACKAGE_NAME_Release=contextwsitch.tar
-CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux/package/contextwsitch.tar
+CND_PACKAGE_NAME_Release=contextswitch.tar
+CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux/package/contextswitch.tar
 #
 # include compiler specific variables
 #
