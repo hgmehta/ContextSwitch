@@ -36,7 +36,8 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/main.o \
-	${OBJECTDIR}/scheduling.o
+	${OBJECTDIR}/scheduling.o \
+	${OBJECTDIR}/threadattribute_queue.o
 
 
 # C Compiler Flags
@@ -72,6 +73,11 @@ ${OBJECTDIR}/scheduling.o: scheduling.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/scheduling.o scheduling.cpp
+
+${OBJECTDIR}/threadattribute_queue.o: threadattribute_queue.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/threadattribute_queue.o threadattribute_queue.cpp
 
 # Subprojects
 .build-subprojects:

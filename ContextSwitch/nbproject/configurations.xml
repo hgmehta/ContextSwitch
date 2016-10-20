@@ -14,6 +14,7 @@
                    projectFiles="true">
       <itemPath>main.cpp</itemPath>
       <itemPath>scheduling.cpp</itemPath>
+      <itemPath>threadattribute_queue.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Test Files"
@@ -47,6 +48,8 @@
       </item>
       <item path="scheduling.cpp" ex="false" tool="1" flavor2="0">
       </item>
+      <item path="threadattribute_queue.cpp" ex="false" tool="1" flavor2="0">
+      </item>
     </conf>
     <conf name="Release" type="1">
       <toolsSet>
@@ -71,6 +74,8 @@
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="scheduling.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="threadattribute_queue.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
   </confs>
