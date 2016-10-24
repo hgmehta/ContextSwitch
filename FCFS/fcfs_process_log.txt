@@ -1,4 +1,4 @@
-Process 	Burst_Time 	Waiting_Time 	Turnaround_Time	   System_Start_Time	System_Stop_Time
+Process 	Burst_Time 		Waiting_Time 	Turnaround_Time	   System_Start_Time	System_Stop_Time
 
  P[1] 	 	 20 	 	 0 	 	20 		 W 		 W
  P[2] 	 	 2 	 	 20 	 	22 		 W 		 W

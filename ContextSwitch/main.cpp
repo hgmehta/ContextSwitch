@@ -24,17 +24,17 @@ threadAttribute t[2];
 volatile int running_threads = 0;
 pthread_mutex_t running_mutex = PTHREAD_MUTEX_INITIALIZER;
 
-void error(int en, char *msg){
+void error(int en, char *msg){  //This function prints error message
     printf("%s",en,msg);
 }
 
-static void stack_attributes(pthread_attr_t *attr, char *prefix)
+static void stack_attributes(pthread_attr_t *attr, char *prefix)    //this function get the stack data of thread
 {
     int s;
-    size_t stack_size, guard_size;
-    void *stack_addr;
+    size_t stack_size, guard_size;  //stores the stack size and guard size of thread
+    void *stack_addr;   //stores the stack address.
     
-    s = pthread_attr_getguardsize(attr, &guard_size);
+    s = pthread_attr_getguardsize(attr, &guard_size);   
     if (s != 0)
         error(s, "error: thread attribute getguardsize fail");
     
@@ -141,34 +141,32 @@ int main()
 {
     int s;
     queue <threadAttribute> threadQueue;
-    pthread_t thr[2];
-    pthread_attr_t attr;
-    pthread_attr_t *attrp[2];
-    attrp[0] = NULL;
+    pthread_t thr[2];   //two thread references
+    pthread_attr_t *attrp[2];      //contain thread attribute
+    attrp[0] = NULL;    //initialize with null value
     attrp[1] = NULL;
     
-      pthread_create(&thr[0], attrp[0], thread_create1, NULL);
+      pthread_create(&thr[0], attrp[0], thread_create1, NULL);  //creating two threads
       pthread_create(&thr[1], attrp[1], thread_create2, NULL);
     for (int i = 0; i <= 1; i++)
-       pthread_join(thr[i], NULL);
-      
-      threadQueue.push(t[0]);
+       pthread_join(thr[i], NULL);  //waiting for completing two threads
+    
+      threadQueue.push(t[0]);   //pushing the thread data in a queue
       threadQueue.push(t[1]);
       
-//      threadAttribute t1 =  threadQueue.front();
-      
-      printf("\npriority %d \nstack size 0x%x \nstack address = %p \nthread id = %d",t[0].npriority,t[0].nstack_size,t[0].nstack_addr,t[0].nthread_id);
-      printf("\nPolice ID %s", (t[0].npolicy == SCHED_FIFO)  ? "SCHED_FIFO" :
-            (t[0].npolicy == SCHED_RR)    ? "SCHED_RR" :
-            (t[0].npolicy == SCHED_OTHER) ? "SCHED_OTHER" :
+      threadAttribute t1 =  threadQueue.front();
+      printf("\npriority %d \nstack size 0x%x \nstack address = %p \nthread id = %d",t1.npriority,t1.nstack_size,t1.nstack_addr,t1.nthread_id);
+      printf("\nPolice ID %s", (t1.npolicy == SCHED_FIFO)  ? "SCHED_FIFO" :
+            (t1.npolicy == SCHED_RR)    ? "SCHED_RR" :
+            (t1.npolicy == SCHED_OTHER) ? "SCHED_OTHER" :
             "???");
-      printf("\nGuard size of thread ID          = %d bytes\n", t[0].nguard_size);
+      printf("\nGuard size of thread ID          = %d bytes\n", t1.nguard_size);
       
-      printf("\npriority %d \nstack size 0x%x \nstack address = %p \nthread id = %d",t[1].npriority,t[1].nstack_size,t[1].nstack_addr,t[1].nthread_id);
-      printf("\nPolice ID %s", (t[1].npolicy == SCHED_FIFO)  ? "SCHED_FIFO" :
-            (t[1].npolicy == SCHED_RR)    ? "SCHED_RR" :
-            (t[1].npolicy == SCHED_OTHER) ? "SCHED_OTHER" :
-            "???");
-      printf("\nGuard size of thread ID          = %d bytes\n", t[1].nguard_size);
+//      printf("\npriority %d \nstack size 0x%x \nstack address = %p \nthread id = %d",t[1].npriority,t[1].nstack_size,t[1].nstack_addr,t[1].nthread_id);
+//      printf("\nPolice ID %s", (t[1].npolicy == SCHED_FIFO)  ? "SCHED_FIFO" :
+//            (t[1].npolicy == SCHED_RR)    ? "SCHED_RR" :
+//            (t[1].npolicy == SCHED_OTHER) ? "SCHED_OTHER" :
+//            "???");
+//      printf("\nGuard size of thread ID          = %d bytes\n", t[1].nguard_size);
 //    pause();    /* Terminates when other thread calls exit() */
 }
